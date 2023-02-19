@@ -14,7 +14,7 @@ df.pop('Email No.')
 
 # extract the last column as the labels
 labels = df.pop('Prediction') # -  1 for spam, 0 for not spam
-pd.get_dummies(labels) # Not really required but useful if changing from binary to multi classification
+labels = pd.get_dummies(labels) # Not really required but useful if changing from binary to multi classification
 
 print(df.head())
 print(labels.head())
@@ -44,7 +44,7 @@ model.add(keras.layers.Dense(1000, activation='relu'))
 model.add(keras.layers.Dropout(0.2))
 model.add(keras.layers.Dense(256, activation='relu'))
 model.add(keras.layers.Dropout(0.2))
-model.add(keras.layers.Dense(1, activation='sigmoid'))
+model.add(keras.layers.Dense(2, activation='sigmoid'))
 model.summary()
 
 # Compile the model
